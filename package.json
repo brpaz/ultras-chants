@@ -1,0 +1,42 @@
+{
+  "name": "ultras-chants",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.4.0",
+    "gridsome": "^0.7.12",
+    "gridsome-plugin-flexsearch": "^0.1.9",
+    "gridsome-plugin-tailwindcss": "^2.2.30",
+    "slug": "^2.0.0",
+    "tailwindcss": "^1.1.4",
+    "vue-svg-loader": "^0.15.0"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-vue": "^6.1.1",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
