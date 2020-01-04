@@ -9,11 +9,15 @@
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.4.0",
+    "fs-extra": "^8.1.0",
     "gridsome": "^0.7.12",
     "gridsome-plugin-flexsearch": "^0.1.9",
     "gridsome-plugin-tailwindcss": "^2.2.30",
+    "mime-types": "^2.1.25",
     "slug": "^2.0.0",
     "tailwindcss": "^1.1.4",
+    "title-case": "^3.0.2",
+    "uuid": "^3.3.3",
     "vue-svg-loader": "^0.15.0"
   },
   "devDependencies": {

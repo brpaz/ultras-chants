@@ -1,3 +1,5 @@
+const path = require('path')
+
 // This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
@@ -9,17 +11,13 @@ module.exports = {
   siteDescription: 'Site that contains a database of my favorite Ultras chants',
   plugins: [
     {
-      use: 'gridsome-plugin-tailwindcss'
+      use: '~/src/plugins/source-chants',
+      options: {
+        baseDir: path.join(__dirname, 'content')
+      }
     },
     {
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'Chant',
-        path: './content/**/*.md',
-        remark: {
-          // remark options
-        }
-      }
+      use: 'gridsome-plugin-tailwindcss'
     },
     {
       use: 'gridsome-plugin-flexsearch',
@@ -40,9 +38,10 @@ module.exports = {
       }
     }
   ],
-  templates: {
-    Chant: '/teams/:team/:id'
-    //Team: "/teams/:slug"
+  transformers: {
+    remark: {
+      // global remark options
+    }
   },
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg')

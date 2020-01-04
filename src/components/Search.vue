@@ -9,6 +9,7 @@
         type="search"
         class="p-4 w-full"
         placeholder="Search ..."
+        @input="onInput"
       />
       <div class="absolute top-0 right-0 mr-4 mt-6">
         <SearchIcon width="16" height="16" />
@@ -23,11 +24,12 @@
         <li
           v-for="result in searchResults"
           :key="result.id"
-          class="border-b p-2"
+          :class="{ 'border-b': searchResults.length > 1 }"
+          class="p-2"
         >
           <g-link :to="result.path">
-            {{ result.name }} ({{ getResultType(result) }})</g-link
-          >
+            {{ result.name }} ({{ getResultType(result) }})
+          </g-link>
         </li>
       </ul>
     </div>
@@ -41,28 +43,37 @@ export default {
     SearchIcon
   },
   data: () => ({
-    searchTerm: ''
+    searchTerm: '',
+    searchResults: [],
+    noResults: false
   }),
-  computed: {
-    searchResults() {
-      const searchTerm = this.searchTerm
-      if (searchTerm.length < 3) return []
-      const results = this.$search.search({ query: searchTerm, limit: 5 })
-      return results
+  watch: {
+    $route(to, from) {
+      this.searchTerm = ''
     }
   },
   methods: {
+    onInput: function(event) {
+      this.noResults = false
+      this.searchResults = []
+      if (this.searchTerm.length < 3) {
+        return
+      }
+
+      const results = this.$search.search({ query: this.searchTerm, limit: 5 })
+
+      if (results.length == 0) {
+        this.noResults = true
+      }
+
+      this.searchResults = results
+    },
     getResultType(result) {
       if (result.index === 'teams') {
         return 'Team'
       }
 
       return 'Chant'
-    }
-  },
-  watch: {
-    $route(to, from) {
-      this.searchTerm = ''
     }
   }
 }

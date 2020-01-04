@@ -1,15 +1,12 @@
 ---
-name: Il nostro folle amore senza fine
+name: Canta con noi, publico di merda
 year: 2018
-youtube_id: IEjVqBeiAuE
+youtube_id: 7nvfTGCMSLs
 original_song:
 ---
 
-Il nostro folle amore senza fine
-Se facciam danni tu ci capirai
-Siam bergamaschi e non conosciam confine
-Ti seguiremo ovunque giocherai
-FORZA Atalanta non mollare
-SEGNA Fai esultare questo stadio
-LOTTA Per la curva e per la tua città
-OOOOO OOOOO OOOOO
+Canta con noi publico di merda
+Canta con noi publico di merda
+
+Canta con noi publico di merda
+Canta con noi publico di merda

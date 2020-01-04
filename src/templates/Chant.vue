@@ -1,8 +1,11 @@
 <template>
   <Layout>
-    <div class="w-full">
+    <div class="w-3/4 mx-auto mb-16">
       <SectionHeading :text="chant.name" />
-      <ChantCard :chant="chant" />
+
+      <div>
+        <ChantCard :chant="chant" :show-name="false" />
+      </div>
     </div>
   </Layout>
 </template>

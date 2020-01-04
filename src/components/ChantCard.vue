@@ -1,17 +1,18 @@
 <template>
   <div
-    class="bg-white flex p-8 mb-8 shaddow-lg border border-gray-400 flex flex-col cursor-pointer"
+    class="bg-white flex p-8 shaddow-lg border border-gray-400 flex flex-col cursor-pointer h-full"
     @click="$router.push(chant.path)"
   >
-    <div class="font-bold text-indigo-700 text-xl">{{ chant.name }}</div>
-    <div class="text-sm text-gray-600">{{ chant.year }}</div>
+    <div v-if="showName" class="font-bold text-indigo-700 text-xl text-center">
+      {{ chant.name }}
+    </div>
 
-    <div class="flex justify-between flex-col relative">
+    <div class="flex justify-between flex-col relative flex-grow">
       <div
         class="pt-4 text-center"
         style="white-space: pre-line;"
         v-html="chant.content"
-      ></div>
+      />
 
       <YoutubeVideo v-if="chant.youtube_id" :id="chant.youtube_id" />
     </div>
@@ -28,6 +29,11 @@ export default {
     chant: {
       type: Object,
       required: true
+    },
+    showName: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   }
 }

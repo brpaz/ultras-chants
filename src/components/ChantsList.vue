@@ -3,7 +3,7 @@
     <div
       v-for="(chant, index) in chants"
       :key="index"
-      class="w-full lg:mr-8 lg:w-5/12"
+      class="w-full lg:mr-8 lg:w-5/12 mb-8"
     >
       <ChantCard :chant="chant" />
     </div>

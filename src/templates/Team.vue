@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <div class="w-full">
-      <SectionHeading text="Team chants" />
+      <SectionHeading :text="'Chants For ' + $page.team.name" />
 
-      <ChantsList :chants="chants" />
+      <ChantsList :chants="$page.team.chants" />
     </div>
   </Layout>
 </template>
@@ -19,27 +19,24 @@ export default {
   },
   computed: {
     chants() {
-      return this.$page.chants.edges.map((edge) => edge.node)
+      return []
     }
   }
 }
 </script>
-
 <page-query>
-query {
-  chants: allChant(filter: { team: { eq: "napoli" }}){
-    totalCount
-    edges {
-      node {
-        id
-        path
-        name
-        content
-        group
-        team
-        year
-        youtube_id
-      }
+query Team($id: ID!) {
+  team: team(id: $id) {
+    id
+    slug
+    name
+    chants(sortBy: "name", order: ASC) {
+      name
+      path
+      content
+      group
+      year
+      youtube_id
     }
   }
 }

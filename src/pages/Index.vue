@@ -5,17 +5,11 @@
       <div
         class="flex flex-wrap flex-col sm:flex-row justify-center items-center"
       >
-        <div
+        <TeamCard
           v-for="edge in $page.teams.edges"
           :key="edge.node.id"
-          class="flex flex-col justify-center text-center bg-white shadow-lg rounded-lg mr-4 mb-8 p-4 border border-gray-400 cursor-pointer"
-          style="width:250px"
-          @click="goToTeamChants(edge.node.slug)"
-        >
-          <g-image :src="edge.node.logo" class="mb-4" />
-
-          <h2 class="font-bold">{{ edge.node.name }}</h2>
-        </div>
+          :team="edge.node"
+        />
       </div>
     </div>
   </Layout>
@@ -23,14 +17,11 @@
 
 <script>
 import SectionHeading from '~/components/SectionHeading.vue'
+import TeamCard from '~/components/TeamCard.vue'
 export default {
   components: {
-    SectionHeading
-  },
-  methods: {
-    goToTeamChants(team) {
-      this.$router.push({ path: `/teams/${team}` })
-    }
+    SectionHeading,
+    TeamCard
   }
 }
 </script>
@@ -44,8 +35,8 @@ query {
       node {
         id
         name
-        slug
         path
+        slug
         logo (width: 192, height: 192)
       }
     }
