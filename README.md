@@ -1,6 +1,8 @@
 # Ultras chants
 
-> My database of the best Ultras / Fan chants.
+> Web application to save my favorite chants for Ultras around the world.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d11ef572-ecd3-4859-a710-7ce11e509c70/deploy-status)](https://app.netlify.com/sites/ultras-chants/deploys)
 
 ## Development
 
