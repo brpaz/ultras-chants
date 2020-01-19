@@ -17,12 +17,10 @@ o amor do meu coração
 
 16 anos no ativo
 sempre a cantar por ti
-
 nós somos Directivo
 e estaremos sempre aqui
 
 nunca ninguem duvide
 do que este grupo é capaz
-
 nós somos Directivo
 e nem um passo atrás.
